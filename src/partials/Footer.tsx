@@ -12,7 +12,7 @@ import {
 class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer p-8 bg-base-200 text-base-content">
+      <footer className="footer p-8 bg-base-200 text-base-content flex-shrink-0">
         <div>
           <p>Chronicle</p>
           <p>

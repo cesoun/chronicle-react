@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './partials/Navbar';
 import Footer from './partials/Footer';
 import Home from './pages/Home';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -10,15 +11,19 @@ function App() {
       {/* Navbar */}
       <Navbar />
       {/* Main */}
-      <main className="flex flex-col md:flex-row h-screen p-10 font-mono">
+      <main>
         {/* Gutter */}
         <div className="p-4 md:p-8 lg:p-10"></div>
-        <section className="h-full w-full mx-auto flex p-8">
+        <section className="min-h-screen w-full mx-auto justify-center p-8 flex">
           {/* Routes Outlet */}
           <Routes>
             <Route
               path={'/'}
               element={<Home />}
+            />
+            <Route
+              path={'/signup'}
+              element={<SignUp />}
             />
           </Routes>
         </section>

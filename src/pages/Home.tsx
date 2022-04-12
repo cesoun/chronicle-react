@@ -3,7 +3,7 @@ import React from 'react';
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <>
         <article className="prose prose-a:after:content-['_↗']">
           <h1>Welcome</h1>
           <p>
@@ -12,6 +12,7 @@ class Home extends React.Component {
             <a
               href="https://github.com/cesoun"
               target="_blank"
+              rel="noreferrer"
             >
               this nerd
             </a>
@@ -39,7 +40,7 @@ class Home extends React.Component {
         <section className="pt-12">
           {/* TODO: Recent Posts Component */}
         </section>
-      </div>
+      </>
     );
   }
 }
