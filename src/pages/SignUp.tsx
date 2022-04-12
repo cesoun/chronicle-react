@@ -110,7 +110,7 @@ class SignUp extends React.Component<{}, InputStates> {
 
   render() {
     return (
-      <div className="flex flex-col gap-8 w-3/4">
+      <div className="flex flex-col gap-8">
         <article className="prose text-center">
           <h1>Sign-Up</h1>
           <p>Glad you could join us, we've got golang and algorithms!</p>

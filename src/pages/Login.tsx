@@ -78,7 +78,7 @@ class Login extends React.Component<{}, InputStates> {
 
   render() {
     return (
-      <div className="flex flex-col gap-8 w-3/4">
+      <div className="flex flex-col gap-8">
         <article className="prose text-center">
           <h1>Login</h1>
           <p>

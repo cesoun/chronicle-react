@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Posts from './pages/Posts';
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
             <Route
               path={'/'}
               element={<Home />}
+            />
+            <Route
+              path={'/posts'}
+              element={<Posts />}
             />
             <Route
               path={'/login'}
