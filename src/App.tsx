@@ -5,6 +5,7 @@ import Footer from './partials/Footer';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       {/* Navbar */}
       <Navbar />
       {/* Main */}
-      <main>
+      <main className="font-mono">
         {/* Gutter */}
         <div className="p-4 md:p-8 lg:p-10"></div>
         <section className="min-h-screen w-full mx-auto justify-center p-8 flex">
@@ -29,6 +30,10 @@ function App() {
             <Route
               path={'/signup'}
               element={<SignUp />}
+            />
+            <Route
+              path={'/profile/:id'}
+              element={<Profile />}
             />
           </Routes>
         </section>

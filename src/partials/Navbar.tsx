@@ -13,7 +13,7 @@ import ThemePicker from './ThemePicker';
 class Navbar extends React.Component {
   render() {
     return (
-      <nav className="navbar bg-base-100 shadow sticky top-0">
+      <nav className="navbar bg-base-100 shadow sticky top-0 font-mono">
         {/* Left */}
         <div className="flex-1">
           <div className="dropdown dropdown-hover">
