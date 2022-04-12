@@ -4,6 +4,7 @@ import Navbar from './partials/Navbar';
 import Footer from './partials/Footer';
 import Home from './pages/Home';
 import SignUp from './pages/SignUp';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
             <Route
               path={'/'}
               element={<Home />}
+            />
+            <Route
+              path={'/login'}
+              element={<Login />}
             />
             <Route
               path={'/signup'}
