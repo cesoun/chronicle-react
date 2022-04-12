@@ -66,7 +66,7 @@ export class FormInput extends React.Component<FormProps, {}> {
               placeholder={input.placeholder}
               value={state.value}
               onChange={(ev) => state.setState(ev, input.id)}
-              required
+              required={input.required}
             />
           </div>
           <label
