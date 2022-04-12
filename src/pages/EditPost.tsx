@@ -4,11 +4,16 @@ import PreviewModal from '../components/PreviewModal';
 import { PostInputStates } from '../interfaces/state/PostInputStates';
 import { validatePost } from '../utils/Validators';
 
-class NewPost extends React.Component<{}, PostInputStates> {
+interface InputStates extends PostInputStates {
+  id: number;
+}
+
+class EditPost extends React.Component<{}, InputStates> {
   constructor(props: any) {
     super(props);
 
     this.state = {
+      id: -1,
       title: '',
       content: '',
       previewContent: '',
@@ -19,6 +24,11 @@ class NewPost extends React.Component<{}, PostInputStates> {
       },
       validate: false,
     };
+  }
+
+  // TODO: Load the Post
+  componentDidMount() {
+    this.setState({ id: 1, title: 'Title', content: 'content' });
   }
 
   componentDidUpdate(
@@ -41,12 +51,12 @@ class NewPost extends React.Component<{}, PostInputStates> {
     }
   };
 
-  // TODO: Handle Post Create
+  // TODO: Handle Post Preview
   handlePreview = (ev: any) => {
     this.setState({ previewContent: '<h1>Testing</h1>' });
   };
 
-  // TODO: Handle Post Submit
+  // TODO: Handle Post Update
   handleSubmit = (ev: any) => {
     ev.preventDefault();
   };
@@ -71,7 +81,7 @@ class NewPost extends React.Component<{}, PostInputStates> {
     return (
       <div className="flex flex-col min-w-full md:w-3/4 gap-8">
         <article className="prose">
-          <h2>New Post</h2>
+          <h2>Edit Post</h2>
         </article>
         <hr className="border-accent" />
 
@@ -141,7 +151,7 @@ class NewPost extends React.Component<{}, PostInputStates> {
               className="btn btn-primary w-32"
               disabled={!this.state.valid}
             >
-              Create
+              Update
             </button>
           </div>
         </form>
@@ -152,4 +162,4 @@ class NewPost extends React.Component<{}, PostInputStates> {
   }
 }
 
-export default NewPost;
+export default EditPost;

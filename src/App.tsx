@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Posts from './pages/Posts';
 import Post from './pages/Post';
 import NewPost from './pages/NewPost';
+import EditPost from './pages/EditPost';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
             <Route
               path={'/post/:id'}
               element={<Post />}
+            />
+            <Route
+              path={'/post/:id/edit'}
+              element={<EditPost />}
             />
             <Route
               path={'/post/new'}
