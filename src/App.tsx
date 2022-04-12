@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Posts from './pages/Posts';
+import Post from './pages/Post';
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
               element={<Posts />}
             />
             <Route
+              path={'/post/:id'}
+              element={<Post />}
+            />
+            <Route
               path={'/login'}
               element={<Login />}
             />
@@ -37,7 +42,7 @@ function App() {
               element={<SignUp />}
             />
             <Route
-              path={'/profile/:id'}
+              path={'/profile/:username'}
               element={<Profile />}
             />
           </Routes>
