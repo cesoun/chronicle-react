@@ -98,6 +98,7 @@ class EditPost extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: 'text',
+              required: true,
               name: 'title',
               id: 'title',
               placeholder: 'Hello, Wonderful!',
@@ -115,6 +116,7 @@ class EditPost extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: 'textarea',
+              required: true,
               name: 'content',
               id: 'content',
               placeholder: '# Markdown support!',

@@ -104,6 +104,7 @@ class Login extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: 'text',
+              required: true,
               name: 'username',
               id: 'username',
               placeholder: 'superuser41',
@@ -121,6 +122,7 @@ class Login extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: 'password',
+              required: true,
               name: 'password',
               id: 'password',
               placeholder: '********',

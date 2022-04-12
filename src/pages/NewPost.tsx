@@ -88,6 +88,7 @@ class NewPost extends React.Component<{}, PostInputStates> {
           <FormInput
             input={{
               type: 'text',
+              required: true,
               name: 'title',
               id: 'title',
               placeholder: 'Hello, Wonderful!',
@@ -105,6 +106,7 @@ class NewPost extends React.Component<{}, PostInputStates> {
           <FormInput
             input={{
               type: 'textarea',
+              required: true,
               name: 'content',
               id: 'content',
               placeholder: '# Markdown support!',

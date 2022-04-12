@@ -133,6 +133,7 @@ class SignUp extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: 'email',
+              required: true,
               name: 'email',
               id: 'email',
               placeholder: 'internet.enjoyer@email.ext',
@@ -149,6 +150,7 @@ class SignUp extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: 'text',
+              required: true,
               name: 'username',
               id: 'username',
               placeholder: 'superuser41',
@@ -165,6 +167,7 @@ class SignUp extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: this.state.toggle ? 'text' : 'password',
+              required: true,
               name: 'password',
               id: 'password',
               placeholder: '********',
@@ -187,6 +190,7 @@ class SignUp extends React.Component<{}, InputStates> {
           <FormInput
             input={{
               type: this.state.toggle ? 'text' : 'password',
+              required: true,
               name: 'confirm password',
               id: 'confirmPassword',
               placeholder: '********',

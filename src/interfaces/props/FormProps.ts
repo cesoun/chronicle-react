@@ -3,6 +3,7 @@ import React from 'react';
 export interface FormProps {
   input: {
     type: string;
+    required: boolean;
     name: string;
     id: string;
     placeholder: string;
