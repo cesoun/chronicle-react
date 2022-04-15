@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React, { useLayoutEffect } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './partials/Navbar';
 import Footer from './partials/Footer';
 import Home from './pages/Home';
@@ -13,6 +13,7 @@ import NewPost from './pages/NewPost';
 import EditPost from './pages/EditPost';
 import { UserContext } from './contexts/UserContext';
 import UseFindUser from './hooks/UseFindUser';
+import ScrollToTop from './hooks/ScrollToTop';
 
 function App() {
   // const { loginUser, error } = UseAuth();
@@ -20,9 +21,11 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <UserContext.Provider value={{ user, setUser, isLoading }}>
         {/* Navbar */}
         <Navbar />
+
         {/* Main */}
         <main className="font-mono flex flex-col md:flex-row">
           {/* Gutter */}

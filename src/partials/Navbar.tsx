@@ -61,21 +61,19 @@ function Navbar() {
         {!user && (
           <>
             {/* No User, SignUp + Login */}
-            <div>
-              <div className="hidden md:flex">
-                <Link
-                  to={'/signup'}
-                  className="btn btn-ghost"
-                >
-                  Sign-Up
-                </Link>
-                <Link
-                  to={'/login'}
-                  className="btn btn-ghost"
-                >
-                  Login
-                </Link>
-              </div>
+            <div className="hidden md:flex gap-2">
+              <Link
+                to={'/signup'}
+                className="btn btn-ghost"
+              >
+                Sign-Up
+              </Link>
+              <Link
+                to={'/login'}
+                className="btn btn-ghost"
+              >
+                Login
+              </Link>
             </div>
 
             {/* Collapse */}
@@ -111,7 +109,7 @@ function Navbar() {
       </div>
 
       {user && (
-        <>
+        <div className="flex gap-2">
           {/*  New Post Button */}
           <div
             className="tooltip tooltip-bottom"
@@ -166,7 +164,7 @@ function Navbar() {
               </li>
             </ul>
           </div>
-        </>
+        </div>
       )}
     </nav>
   );

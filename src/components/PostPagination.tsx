@@ -9,6 +9,7 @@ import { Truncate } from '../utils/Truncate';
 import DisplayDate from '../utils/DisplayDate';
 
 // TODO: Convert to accept Props
+// TODO: Handle Next / Prev
 function PostPagination() {
   const [posts, setPosts] = useState<null | PaginatedPosts>(null);
   const [error, setError] = useState<null | ErrorModel>(null);
@@ -43,8 +44,11 @@ function PostPagination() {
           <p className="capitalize hidden md:block">
             {Truncate(post.title, 35, true)}
           </p>
-          <small className="font-light normal-case text-secondary">
-            {DisplayDate(post.created_at)}
+          <small className="font-light normal-case text-secondary sm:hidden">
+            {DisplayDate(post.created_at, true)}
+          </small>
+          <small className="font-light normal-case text-secondary hidden sm:block">
+            {DisplayDate(post.created_at, false)}
           </small>
         </Link>
       );
