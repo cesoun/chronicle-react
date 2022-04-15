@@ -2,7 +2,11 @@ import { useContext, useState } from 'react';
 import { UserContext } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/AuthService';
-import ErrorModel from '../interfaces/models/ErrorModel';
+import ErrorModel, {
+  InstanceOfErrorModel,
+} from '../interfaces/models/ErrorModel';
+import SignUpModel from '../interfaces/models/SignUpModel';
+import LoginModel from '../interfaces/models/LoginModel';
 
 export default function UseAuth() {
   const { setUser } = useContext(UserContext);
@@ -10,6 +14,9 @@ export default function UseAuth() {
 
   let navigate = useNavigate();
 
+  /**
+   * Set the Context from the token.
+   */
   const setUserContext = () => {
     const token = AuthService.decodeToken();
     if (token) {
@@ -24,11 +31,36 @@ export default function UseAuth() {
     }
   };
 
-  const registerUser = async () => {};
+  /**
+   * Register a User and navigate to /login on success.
+   * @param signUp
+   */
+  const registerUser = async (signUp: SignUpModel) => {
+    const res = await AuthService.register(signUp);
+    if (InstanceOfErrorModel(res)) {
+      setError(res as ErrorModel);
+    } else {
+      navigate('/login');
+    }
+  };
 
-  const loginUser = async () => {};
+  /**
+   * Login a User and navigate to SetUserContext on success.
+   * @param login
+   */
+  const loginUser = async (login: LoginModel) => {
+    const res = await AuthService.login(login);
+    if (InstanceOfErrorModel(res)) {
+      setError(res as ErrorModel);
+    } else {
+      setUserContext();
+    }
+  };
 
-  const logoutUser = () => {};
+  const logoutUser = () => {
+    AuthService.logout();
+    setUserContext();
+  };
 
   return { registerUser, loginUser, logoutUser, error };
 }
