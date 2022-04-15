@@ -57,6 +57,9 @@ export default function UseAuth() {
     }
   };
 
+  /**
+   * Logout a User and SetUserContext
+   */
   const logoutUser = () => {
     AuthService.logout();
     setUserContext();

@@ -10,9 +10,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import ThemePicker from './ThemePicker';
 import { UserContext } from '../contexts/UserContext';
+import UseAuth from '../hooks/UseAuth';
+import AuthService from '../services/AuthService';
 
 function Navbar() {
   const { user, isLoading } = useContext(UserContext);
+  const { logoutUser } = UseAuth();
+  const token = AuthService.decodeToken();
 
   if (isLoading) {
     return <p className="btn btn-ghost loading"></p>;
@@ -137,7 +141,7 @@ function Navbar() {
             <ul className="p-2 shadow border-2 border-base-200/25 menu menu-compact dropdown-content bg-base-100 w-52">
               <li>
                 <Link
-                  to={'/profile/:id'}
+                  to={`/profile/${token?.sub}`}
                   className="justify-between"
                 >
                   Profile
@@ -146,7 +150,7 @@ function Navbar() {
               </li>
               <li>
                 <Link
-                  to={'profile/:id/edit'}
+                  to={`profile/${token?.sub}/edit`}
                   className="justify-between"
                 >
                   Settings
@@ -154,13 +158,13 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <Link
-                  to={'#logout'}
+                <button
                   className="justify-between"
+                  onClick={logoutUser}
                 >
                   Logout
                   <FontAwesomeIcon icon={faCircleXmark} />
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
