@@ -64,7 +64,7 @@ function Login() {
       <article className="prose text-center">
         <h1>Login</h1>
         <p>Welcome back! A lot has happened while you were gone, I think...</p>
-        <hr className="bg-accent" />
+        <hr className="border-primary" />
       </article>
 
       {error && (

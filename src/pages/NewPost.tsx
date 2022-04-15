@@ -73,7 +73,7 @@ class NewPost extends React.Component<{}, PostInputStates> {
         <article className="prose">
           <h2>New Post</h2>
         </article>
-        <hr className="border-accent" />
+        <hr className="border-primary" />
 
         {/*<div className="alert alert-error">*/}
         {/*  <span>Error</span>*/}

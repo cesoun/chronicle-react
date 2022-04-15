@@ -3,19 +3,36 @@ export interface Theme {
   emoji: string;
 }
 
+/*
+      'light',
+      'dark',
+      'corporate',
+      'garden',
+      'forest',
+      'lofi',
+      'pastel',
+      'dracula',
+      'cmyk',
+      'autumn',
+      'business',
+      'night',
+      'coffee',
+      'winter',
+ */
+
 export const themes = {
-  light: {
-    name: 'light',
-    emoji: '🌝',
-  },
-  dark: {
-    name: 'dark',
-    emoji: '🌚',
-  },
-  business: {
-    name: 'business',
-    emoji: '💼',
-  },
+  light: { name: 'light', emoji: '🌝' },
+  dark: { name: 'dark', emoji: '🌚' },
+  corporate: { name: 'corporate', emoji: '🏢' },
+  forest: { name: 'forest', emoji: '🌲' },
+  lofi: { name: 'lofi', emoji: '👓' },
+  dracula: { name: 'dracula', emoji: '🧛🏻‍♂️' },
+  cmyk: { name: 'cmyk', emoji: '🖨' },
+  autumn: { name: 'autumn', emoji: '🍁' },
+  business: { name: 'business', emoji: '💼' },
+  night: { name: 'night', emoji: '🌙' },
+  coffee: { name: 'coffee', emoji: '☕️' },
+  winter: { name: 'winter', emoji: '❄️' },
 };
 
 class ThemeService {

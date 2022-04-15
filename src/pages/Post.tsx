@@ -26,7 +26,7 @@ class Post extends React.Component<{}, {}> {
             <small>Updated on: post.updated_at</small>
           </p>
         </article>
-        <hr className="border-accent" />
+        <hr className="border-primary" />
 
         <span>post.content</span>
       </div>

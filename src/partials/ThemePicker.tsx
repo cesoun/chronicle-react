@@ -10,20 +10,39 @@ class ThemePicker extends React.Component<{}, {}> {
   }
 
   /**
+   * Set theme and trigger update
+   * @param name Name of theme
+   */
+  setTheme = (name: string) => {
+    ThemeService.setTheme(name);
+    this.forceUpdate();
+  };
+
+  /**
    * Map the themes to li elements and set click handler.
    */
-  renderThemes = ThemeService.getThemes().map((theme) => {
-    return (
-      <li
-        key={theme.name}
-        onClick={() => ThemeService.setTheme(theme.name)}
-      >
-        <button className="justify-between lowercase">
-          {theme.name} <span>{theme.emoji}</span>
-        </button>
-      </li>
-    );
-  });
+  renderThemes = () =>
+    ThemeService.getThemes().map((theme) => {
+      return (
+        <li
+          key={theme.name}
+          onClick={() => this.setTheme(theme.name)}
+        >
+          <button className="justify-between lowercase">
+            <span
+              className={
+                ThemeService.getSelectedThemeName() === theme.name
+                  ? 'italic underline'
+                  : ''
+              }
+            >
+              {theme.name}
+            </span>{' '}
+            <span>{theme.emoji}</span>
+          </button>
+        </li>
+      );
+    });
 
   render() {
     return (
@@ -36,9 +55,9 @@ class ThemePicker extends React.Component<{}, {}> {
         </label>
 
         {/* Dropdown */}
-        <ul className="p-2 shadow border-2 border-base-200/25 dropdown-content menu menu-compact bg-base-100 w-52">
+        <ul className="p-2 rounded shadow border-2 border-base-300/10 dropdown-content menu menu-compact bg-primary w-52">
           {/* Themes */}
-          {this.renderThemes}
+          {this.renderThemes()}
         </ul>
       </div>
     );

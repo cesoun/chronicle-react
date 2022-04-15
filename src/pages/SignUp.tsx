@@ -114,7 +114,7 @@ class SignUp extends React.Component<{}, InputStates> {
         <article className="prose text-center">
           <h1>Sign-Up</h1>
           <p>Glad you could join us, we've got golang and algorithms!</p>
-          <hr className="bg-accent" />
+          <hr className="border-primary" />
         </article>
 
         {/*<div className="alert alert-warning shadow-lg">*/}

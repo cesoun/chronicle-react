@@ -11,7 +11,7 @@ class Posts extends React.Component<{}, {}> {
             reading. If not then it might be a you thing... definitely not a me
             thing, i'm perfect.
           </p>
-          <hr className="border-accent" />
+          <hr className="border-primary" />
         </article>
 
         {/* Post Paginator */}

@@ -18,7 +18,7 @@ function Profile() {
 
   useEffect(() => {
     getUserByUsername(username);
-  }, [setDbUser, username]);
+  });
 
   const getUserByUsername = async (username: string | undefined) => {
     if (!username) {
@@ -90,7 +90,7 @@ function Profile() {
       {/* Divider */}
       <div className="pt-4 max-w-3/4">
         <h1>Recent Posts</h1>
-        <hr className="border-accent" />
+        <hr className="border-primary" />
       </div>
 
       {/* Recent Posts Component */}

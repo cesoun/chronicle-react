@@ -83,7 +83,7 @@ class EditPost extends React.Component<{}, InputStates> {
         <article className="prose">
           <h2>Edit Post</h2>
         </article>
-        <hr className="border-accent" />
+        <hr className="border-primary" />
 
         {/*<div className="alert alert-error">*/}
         {/*  <span>Error</span>*/}

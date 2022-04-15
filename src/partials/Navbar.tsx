@@ -21,7 +21,7 @@ function Navbar() {
   }
 
   return (
-    <nav className="navbar bg-base-100 shadow sticky top-0 font-mono">
+    <nav className="navbar bg-primary text-primary-content sticky top-0 font-mono">
       {/* Left */}
       <div className="flex-1">
         <div className="dropdown dropdown-hover">
@@ -33,7 +33,7 @@ function Navbar() {
             Chronicle
           </Link>
 
-          <ul className="p-2 shadow border-2 border-base-200/25 dropdown-content menu menu-compact bg-base-100 w-52">
+          <ul className="p-2 rounded shadow border-2 border-base-300/10 dropdown-content menu menu-compact bg-primary w-52">
             <li>
               <Link
                 to={'/'}
@@ -89,7 +89,7 @@ function Navbar() {
               </label>
 
               {/* Dropdown */}
-              <ul className="p-2 shadow border-2 border-base-200/25 dropdown-content menu menu-compact bg-base-100 w-52">
+              <ul className="p-2 rounded shadow border-2 border-base-300/10 dropdown-content menu menu-compact bg-primary w-52">
                 <li>
                   <Link
                     to={'/signup'}
@@ -136,7 +136,7 @@ function Navbar() {
             </label>
 
             {/* Dropdown */}
-            <ul className="p-2 shadow border-2 border-base-200/25 menu menu-compact dropdown-content bg-base-100 w-52">
+            <ul className="p-2 rounded shadow border-2 border-base-300/10 menu menu-compact dropdown-content bg-primary w-52">
               <li>
                 <Link
                   to={`/profile/${user?.sub}`}
