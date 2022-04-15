@@ -18,7 +18,8 @@ function Profile() {
 
   useEffect(() => {
     getUserByUsername(username);
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const getUserByUsername = async (username: string | undefined) => {
     if (!username) {
@@ -88,7 +89,7 @@ function Profile() {
       )}
 
       {/* Divider */}
-      <div className="pt-4 max-w-3/4">
+      <div className="pt-2 max-w-3/4">
         <h1>Recent Posts</h1>
         <hr className="border-primary" />
       </div>

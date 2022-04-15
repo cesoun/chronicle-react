@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PostPagination from '../components/PostPagination';
 
 class Home extends React.Component {
   render() {
     return (
-      <>
-        <article className="prose prose-a:after:content-['_↗']">
+      <div className="flex flex-col min-w-full md:w-3/4">
+        <article className="prose max-w-full prose-a:after:content-['_↗']">
           <h1>Welcome</h1>
           <p>
             <strong>Chronicle</strong> is a blogging application written
@@ -37,10 +39,22 @@ class Home extends React.Component {
           </p>
         </article>
 
-        <section className="pt-12">
-          {/* TODO: Recent Posts Component */}
-        </section>
-      </>
+        {/* Divider */}
+        <div className="pt-12 flex items-baseline justify-between">
+          <h1>Recent Posts</h1>
+          <Link
+            to="/posts"
+            className="text-xs link no-underline hover:underline"
+          >
+            View all
+          </Link>
+        </div>
+        <hr className="border-primary flex-none" />
+
+        <div className="py-4">
+          <PostPagination />
+        </div>
+      </div>
     );
   }
 }

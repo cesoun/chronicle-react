@@ -14,7 +14,7 @@ export default function UseFindUser() {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [setUser, setLoading]);
 
   return { user, setUser, isLoading };
 }
