@@ -9,8 +9,9 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import ThemePicker from './ThemePicker';
+import ThemeService from '../services/ThemeService';
 
-class Navbar extends React.Component {
+class Navbar extends React.Component<{}, {}> {
   render() {
     return (
       <nav className="navbar bg-base-100 shadow sticky top-0 font-mono">

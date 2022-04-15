@@ -9,7 +9,7 @@ class Posts extends React.Component<{}, {}> {
           <p>
             There has to be at least one thing in this ol' database worth
             reading. If not then it might be a you thing... definitely not a me
-            thing, im perfect.
+            thing, i'm perfect.
           </p>
           <hr className="border-accent" />
         </article>
