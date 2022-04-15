@@ -21,7 +21,7 @@ export default function UseAuth() {
     const token = AuthService.decodeToken();
     if (token) {
       setUser(token);
-      navigate('/');
+      navigate(`/profile/${token.sub}`);
     } else {
       setError({
         error: true,

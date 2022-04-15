@@ -69,7 +69,9 @@ function Login() {
 
       {error && (
         <div className="alert alert-error shadow-lg">
-          <div>{error.msg}</div>
+          <div>
+            <span>{error.msg}</span>
+          </div>
         </div>
       )}
 

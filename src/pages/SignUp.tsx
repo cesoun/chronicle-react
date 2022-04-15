@@ -64,7 +64,7 @@ class SignUp extends React.Component<{}, InputStates> {
         break;
       case 'toggle':
         value = ev.target.checked;
-        this.setState({ toggle: value, validate: true });
+        this.setState({ toggle: value });
         break;
     }
   };

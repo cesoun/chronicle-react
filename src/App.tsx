@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
 import Posts from './pages/Posts';
 import Post from './pages/Post';
 import NewPost from './pages/NewPost';
@@ -60,6 +61,10 @@ function App() {
               <Route
                 path={'/profile/:username'}
                 element={<Profile />}
+              />
+              <Route
+                path={'/profile/:username/edit'}
+                element={<EditProfile />}
               />
             </Routes>
           </section>
