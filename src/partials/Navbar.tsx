@@ -9,7 +9,6 @@ import {
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import ThemePicker from './ThemePicker';
-import ThemeService from '../services/ThemeService';
 
 class Navbar extends React.Component<{}, {}> {
   render() {

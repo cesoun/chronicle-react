@@ -6,10 +6,6 @@ interface FormToggleProps {
 }
 
 class FormToggle extends React.Component<FormToggleProps, {}> {
-  constructor(props: any) {
-    super(props);
-  }
-
   render() {
     const { state, setState } = this.props;
 

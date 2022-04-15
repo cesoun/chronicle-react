@@ -2,10 +2,6 @@ import React from 'react';
 import { FormProps } from '../interfaces/props/FormProps';
 
 export class FormInput extends React.Component<FormProps, {}> {
-  constructor(props: FormProps) {
-    super(props);
-  }
-
   getClasses = () => {
     const { state, input } = this.props;
     const isTextarea = input.type === 'textarea';

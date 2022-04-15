@@ -5,10 +5,6 @@ interface PreviewProps {
 }
 
 class PreviewModal extends React.Component<PreviewProps, {}> {
-  constructor(props: PreviewProps) {
-    super(props);
-  }
-
   render() {
     return (
       <>
