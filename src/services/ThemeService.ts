@@ -3,23 +3,6 @@ export interface Theme {
   emoji: string;
 }
 
-/*
-      'light',
-      'dark',
-      'corporate',
-      'garden',
-      'forest',
-      'lofi',
-      'pastel',
-      'dracula',
-      'cmyk',
-      'autumn',
-      'business',
-      'night',
-      'coffee',
-      'winter',
- */
-
 export const themes = {
   light: { name: 'light', emoji: '🌝' },
   dark: { name: 'dark', emoji: '🌚' },
@@ -58,7 +41,7 @@ class ThemeService {
     let theme = localStorage.getItem('theme');
 
     if (!theme) {
-      this.setTheme(themes.light.name);
+      this.setTheme(themes.cmyk.name);
       theme = themes.light.name;
     }
 
