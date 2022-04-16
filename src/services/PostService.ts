@@ -10,6 +10,10 @@ import ErrorModel from '../interfaces/models/ErrorModel';
 const API_URL: string | undefined = process.env.REACT_APP_API_URL;
 
 class PostService {
+  /**
+   * Create a Post
+   * @param body Post to create
+   */
   createPost(body: PostUpdateFields): Promise<boolean | ErrorModel> {
     return axios
       .post(`${API_URL}/post`, body)
@@ -17,6 +21,10 @@ class PostService {
       .catch(ProcessError);
   }
 
+  /**
+   * Get a Post by Id
+   * @param id Id of the Post
+   */
   getPostById(id: number): Promise<Post | ErrorModel> {
     return axios
       .get(`${API_URL}/post/${id}`)
@@ -24,6 +32,11 @@ class PostService {
       .catch(ProcessError);
   }
 
+  /**
+   * Update a Post by Id
+   * @param id Id of the Post
+   * @param body Fields to update on the Post
+   */
   putPostById(
     id: number,
     body: PostUpdateFields
@@ -34,6 +47,10 @@ class PostService {
       .catch(ProcessError);
   }
 
+  /**
+   * Delete a Post by Id
+   * @param id Id of the Post
+   */
   deletePostById(id: number): Promise<boolean | ErrorModel> {
     return axios
       .delete(`${API_URL}/post/${id}`)
@@ -41,6 +58,11 @@ class PostService {
       .catch(ProcessError);
   }
 
+  /**
+   * Get All Posts
+   * @param limit Number of Posts to return 1 - 100
+   * @param offset The page offset
+   */
   getPosts(
     limit: number,
     offset: number
@@ -60,6 +82,12 @@ class PostService {
       .catch(ProcessError);
   }
 
+  /**
+   * Get the Posts given an Author Id
+   * @param id Id of the Author
+   * @param limit Number of Posts to return 1 - 100
+   * @param offset The page offset
+   */
   getPostsByAuthorId(
     id: number,
     limit: number,
@@ -80,6 +108,12 @@ class PostService {
       .catch(ProcessError);
   }
 
+  /**
+   * Get the Posts given a Query string
+   * @param query Query to look for in the title and content
+   * @param limit Number of Posts to return 1 - 100
+   * @param offset The page offset
+   */
   getPostsByQuery(
     query: string,
     limit: number,
