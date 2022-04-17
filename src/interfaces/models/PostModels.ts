@@ -1,4 +1,4 @@
-export interface Post {
+export interface PostModel {
   id: number;
   author_id: number;
   title: string;
@@ -8,7 +8,7 @@ export interface Post {
 }
 
 export interface PaginatedPosts {
-  items: Post[];
+  items: PostModel[];
   limit: number;
   offset: number;
   count: number;

@@ -1,6 +1,6 @@
 import {
   PaginatedPosts,
-  Post,
+  PostModel,
   PostUpdateFields,
 } from '../interfaces/models/PostModels';
 import axios from 'axios';
@@ -25,10 +25,10 @@ class PostService {
    * Get a Post by Id
    * @param id Id of the Post
    */
-  getPostById(id: number): Promise<Post | ErrorModel> {
+  getPostById(id: number): Promise<PostModel | ErrorModel> {
     return axios
       .get(`${API_URL}/post/${id}`)
-      .then((res) => res.data as Post)
+      .then((res) => res.data as PostModel)
       .catch(ProcessError);
   }
 
