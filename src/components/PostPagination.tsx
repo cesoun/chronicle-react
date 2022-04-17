@@ -1,35 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { PaginatedPosts } from '../interfaces/models/PostModels';
-import PostService from '../services/PostService';
-import ErrorModel, {
-  InstanceOfErrorModel,
-} from '../interfaces/models/ErrorModel';
+import ErrorModel from '../interfaces/models/ErrorModel';
 import { Link } from 'react-router-dom';
 import { Truncate } from '../utils/Truncate';
 import DisplayDate from '../utils/DisplayDate';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
-// TODO: Convert to accept Props
-// TODO: Handle Next / Prev
-function PostPagination() {
-  const [posts, setPosts] = useState<null | PaginatedPosts>(null);
-  const [error, setError] = useState<null | ErrorModel>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+interface PaginatorProps {
+  posts: null | PaginatedPosts;
+  loading: boolean;
+  error: null | ErrorModel;
+  hasNext?: boolean;
+  hasPrev?: boolean;
+  nextFunc?: Function;
+  prevFunc?: Function;
+}
 
-  useEffect(() => {
-    getRecentPosts();
-  }, [setPosts]);
-
-  const getRecentPosts = async () => {
-    const res = await PostService.getPosts(10, 0);
-    if (InstanceOfErrorModel(res)) {
-      setError(res as ErrorModel);
-    } else {
-      setPosts(res as PaginatedPosts);
-    }
-
-    setLoading(false);
-  };
-
+function PostPagination({
+  posts,
+  loading,
+  error,
+  hasNext,
+  hasPrev,
+  nextFunc,
+  prevFunc,
+}: PaginatorProps) {
   const renderPosts = () =>
     posts?.items.map((post) => {
       return (
@@ -54,19 +50,52 @@ function PostPagination() {
       );
     });
 
+  const renderPaginator = () => {
+    // Only render the paginator if it has everything.
+    if (hasNext === undefined || hasPrev === undefined) return;
+    if (!nextFunc || !prevFunc) return;
+
+    return (
+      <>
+        <hr className="border-primary mt-4" />
+        <div className="flex justify-between gap-2 p-4">
+          <button
+            className="btn btn-ghost btn-sm"
+            disabled={!hasPrev}
+            onClick={() => prevFunc()}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+          <button
+            className="btn btn-ghost btn-sm"
+            disabled={!hasNext}
+            onClick={() => nextFunc()}
+          >
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
+        </div>
+      </>
+    );
+  };
+
   if (!posts) {
     if (error) {
-      return <p className="btn btn-error">Failed to load posts...</p>;
+      return <p className="btn btn-error w-full">Failed to load posts...</p>;
     }
 
     if (!loading) {
-      return <p className="btn btn-ghost">No posts found...</p>;
+      return <p className="btn btn-ghost w-full">No posts found...</p>;
     }
 
-    return <p className="btn btn-ghost loading">Loading Posts...</p>;
+    return <p className="btn btn-ghost loading w-full">Loading Posts...</p>;
   }
 
-  return <div className="flex flex-col gap-2">{renderPosts()}</div>;
+  return (
+    <>
+      <div className="flex flex-col gap-2">{renderPosts()}</div>
+      {renderPaginator()}
+    </>
+  );
 }
 
 export default PostPagination;
