@@ -19,9 +19,8 @@ class PreviewModal extends React.Component<PreviewProps, {}> {
             <article
               className="prose"
               id="preview-modal"
-            >
-              {this.props.value}
-            </article>
+              dangerouslySetInnerHTML={{ __html: this.props.value }}
+            ></article>
             <div className="modal-action">
               <label
                 htmlFor="preview-modal"

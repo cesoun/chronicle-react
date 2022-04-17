@@ -12,17 +12,16 @@ function Post() {
   return (
     <div className="flex flex-col w-11/12 mx-auto">
       {/*TODO: Render if sub === token.sub*/}
-      {user &&
-        user.sub(
-          <div className="flex justify-center">
-            <Link
-              to={'/post/:id/edit'}
-              className="btn btn-ghost btn-sm"
-            >
-              Edit
-            </Link>
-          </div>
-        )}
+      {user && (
+        <div className="flex justify-center">
+          <Link
+            to={'/post/:id/edit'}
+            className="btn btn-ghost btn-sm"
+          >
+            Edit
+          </Link>
+        </div>
+      )}
 
       <article className="prose py-6">
         <h4>Post Title</h4>
