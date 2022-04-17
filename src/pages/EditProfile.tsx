@@ -1,12 +1,7 @@
 import React from 'react';
 
-class EditProfile extends React.Component<{}, {}> {
-  render() {
-    return undefined;
-  }
-
-  // TODO: Load the User
-  componentDidMount() {}
+function EditProfile() {
+  return <p>OK!</p>;
 }
 
 export default EditProfile;

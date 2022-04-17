@@ -52,13 +52,13 @@ function Profile() {
     }
   };
 
-  if (isLoading) {
-    return <p className="btn btn-ghost loading">Loading Context...</p>;
-  }
-
   if (!dbUser) {
     if (error) {
       return <Navigate to="/" />;
+    }
+
+    if (isLoading) {
+      return <p className="btn btn-ghost loading">Loading Context...</p>;
     }
 
     return <p className="btn btn-ghost loading">Loading User...</p>;
