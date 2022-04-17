@@ -10,8 +10,6 @@ import { User } from '../interfaces/models/UserModels';
 import UserService from '../services/UserService';
 import DisplayDate from '../utils/DisplayDate';
 import { Unified } from '../utils/Unified';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 function Post() {
   const { user, isLoading } = useContext(UserContext);
