@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import AuthService from '../services/AuthService';
 
-const API_URL: string | undefined = process.env.API_URL;
+const API_URL: string | undefined = process.env.REACT_APP_API_URL;
 
 /**
  * Attach Bearer Auth to all requests in API_URL
