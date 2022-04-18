@@ -44,6 +44,20 @@ function EditPost({ post }: EditPostProps) {
     setShouldValidate(true);
   };
 
+  const handleDelete = async (ev: any) => {
+    ev.preventDefault();
+
+    if (!window.confirm('Are you sure? This cannot be undone.')) return;
+
+    const res = await PostService.deletePostById(post.id);
+    if (InstanceOfErrorModel(res)) {
+      setError(res as ErrorModel);
+      return;
+    }
+
+    navigate('/posts');
+  };
+
   const handlePreview = async (ev: any) => {
     const unified = (await Unified(content)) as string;
     setPreviewContent(unified);
@@ -144,21 +158,31 @@ function EditPost({ post }: EditPostProps) {
         />
 
         {/* Buttons */}
-        <div className="flex gap-4 justify-end mt-8">
-          <label
-            className="btn btn-ghost btn-outline w-32"
-            htmlFor="preview-modal"
-            onClick={handlePreview}
-          >
-            Preview
-          </label>
+        <div className="flex gap-4 justify-between mt-8">
+          {/* Delete */}
           <button
-            type="submit"
-            className="btn btn-primary w-32"
-            disabled={!valid}
+            className="btn btn-error btn-outline w-32"
+            onClick={handleDelete}
           >
-            Update
+            Delete
           </button>
+          {/* Update + Preview */}
+          <div className="flex gap-4">
+            <label
+              className="btn btn-ghost btn-outline w-32"
+              htmlFor="preview-modal"
+              onClick={handlePreview}
+            >
+              Preview
+            </label>
+            <button
+              type="submit"
+              className="btn btn-primary w-32"
+              disabled={!valid}
+            >
+              Update
+            </button>
+          </div>
         </div>
       </form>
 
