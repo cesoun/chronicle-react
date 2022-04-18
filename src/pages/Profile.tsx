@@ -6,15 +6,20 @@ import UserService from '../services/UserService';
 import ErrorModel, {
   InstanceOfErrorModel,
 } from '../interfaces/models/ErrorModel';
+import PostPagination from '../components/PostPagination';
+import UseAuthorRecentPosts from '../hooks/UseAuthorRecentPosts';
 
 function Profile() {
   const { user, isLoading } = useContext(UserContext);
+  const { setId, posts, error, loading, hasNext, hasPrev, nextFunc, prevFunc } =
+    UseAuthorRecentPosts();
+
   const { username } = useParams();
 
   let navigate = useNavigate();
 
   const [dbUser, setDbUser] = useState<null | User>(null);
-  const [error, setError] = useState<null | ErrorModel>(null);
+  const [userError, setUserError] = useState<null | ErrorModel>(null);
 
   useEffect(() => {
     getUserByUsername(username);
@@ -28,9 +33,12 @@ function Profile() {
 
     const res = await UserService.getUserByUsername(username);
     if (InstanceOfErrorModel(res)) {
-      setError(res as ErrorModel);
+      setUserError(res as ErrorModel);
     } else {
-      setDbUser(res as User);
+      let user = res as User;
+
+      setDbUser(user);
+      setId(user.id!);
     }
   };
 
@@ -53,7 +61,7 @@ function Profile() {
   };
 
   if (!dbUser) {
-    if (error) {
+    if (userError) {
       return <Navigate to="/" />;
     }
 
@@ -95,6 +103,17 @@ function Profile() {
       </div>
 
       {/* Recent Posts Component */}
+      <div className="py-4">
+        <PostPagination
+          posts={posts}
+          loading={loading}
+          error={error}
+          hasNext={hasNext}
+          hasPrev={hasPrev}
+          nextFunc={nextFunc}
+          prevFunc={prevFunc}
+        />
+      </div>
     </div>
   );
 }

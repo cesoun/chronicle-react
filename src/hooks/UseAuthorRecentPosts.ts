@@ -5,7 +5,10 @@ import ErrorModel, {
 } from '../interfaces/models/ErrorModel';
 import PostService from '../services/PostService';
 
-export default function UseRecentPosts() {
+// TODO: ! Wet code, dry it: UseRecentPosts.ts
+
+export default function UseAuthorRecentPosts() {
+  const [id, setId] = useState<null | number>(null);
   const [posts, setPosts] = useState<null | PaginatedPosts>(null);
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(10);
@@ -16,14 +19,15 @@ export default function UseRecentPosts() {
 
   useEffect(() => {
     getRecentPosts(page);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [id]);
 
   const getRecentPosts = async (p: number) => {
+    if (!id) return;
+
     setLoading(true);
     setPosts(null);
 
-    const res = await PostService.getPosts(limit, p * limit);
+    const res = await PostService.getPostsByAuthorId(id, limit, p * limit);
     if (InstanceOfErrorModel(res)) {
       setPosts(null);
       setError(res as ErrorModel);
@@ -56,6 +60,7 @@ export default function UseRecentPosts() {
   };
 
   return {
+    setId,
     posts,
     error,
     loading,

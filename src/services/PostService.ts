@@ -39,8 +39,6 @@ class PostService {
    * @param body Fields to update on the Post
    */
   putPostById(id: number, body: PostUpdate): Promise<boolean | ErrorModel> {
-    console.log(body, { ...body });
-
     return axios
       .put(`${API_URL}/post/${id}`, { ...body })
       .then((res) => res.status === 204)
