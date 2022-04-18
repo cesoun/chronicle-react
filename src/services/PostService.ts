@@ -1,6 +1,7 @@
 import {
   PaginatedPosts,
   PostModel,
+  PostUpdate,
   PostUpdateFields,
 } from '../interfaces/models/PostModels';
 import axios from 'axios';
@@ -37,12 +38,11 @@ class PostService {
    * @param id Id of the Post
    * @param body Fields to update on the Post
    */
-  putPostById(
-    id: number,
-    body: PostUpdateFields
-  ): Promise<boolean | ErrorModel> {
+  putPostById(id: number, body: PostUpdate): Promise<boolean | ErrorModel> {
+    console.log(body, { ...body });
+
     return axios
-      .put(`${API_URL}/post/${id}`, body)
+      .put(`${API_URL}/post/${id}`, { ...body })
       .then((res) => res.status === 204)
       .catch(ProcessError);
   }

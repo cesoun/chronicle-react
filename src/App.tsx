@@ -10,7 +10,7 @@ import EditProfileAuth from './pages/EditProfileAuth';
 import Posts from './pages/Posts';
 import Post from './pages/Post';
 import NewPost from './pages/NewPost';
-import EditPost from './pages/EditPost';
+import EditPostAuth from './pages/EditPostAuth';
 import { UserContext } from './contexts/UserContext';
 import UseFindUser from './hooks/UseFindUser';
 import ScrollToTop from './hooks/ScrollToTop';
@@ -47,7 +47,7 @@ function App() {
               />
               <Route
                 path={'/post/:id/edit'}
-                element={<EditPost />}
+                element={<EditPostAuth />}
               />
               <Route
                 path={'/post/new'}

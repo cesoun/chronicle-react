@@ -62,7 +62,7 @@ function Post() {
 
   return (
     <div className="flex flex-col w-11/12 mx-auto">
-      {user && (
+      {user && author?.username === user?.sub && (
         <div className="flex justify-center">
           <Link
             to={`/post/${id}/edit`}
