@@ -7,7 +7,7 @@ function Posts() {
     UseRecentPosts();
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-w-full md:w-3/4">
       <article className="prose">
         <h1>Posts</h1>
         <p>
@@ -15,8 +15,8 @@ function Posts() {
           If not then it might be a you thing... definitely not a me thing, i'm
           perfect.
         </p>
-        <hr className="border-primary" />
       </article>
+      <hr className="border-primary mt-4" />
 
       {/* Post Paginator */}
       <div className="py-4">

@@ -61,7 +61,7 @@ function Post() {
   }
 
   return (
-    <div className="flex flex-col w-11/12 mx-auto">
+    <div className="flex flex-col min-w-full md:w-3/4">
       {user && author?.username === user?.sub && (
         <div className="flex justify-center">
           <Link
