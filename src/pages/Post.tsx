@@ -99,7 +99,7 @@ function Post() {
 
       {/* Post Content */}
       <article
-        className="prose my-8"
+        className="prose my-8 mx-auto"
         dangerouslySetInnerHTML={{ __html: content }}
       ></article>
     </div>
