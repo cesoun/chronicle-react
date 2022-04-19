@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { FormInput } from '../components/FromInput';
 import { Link } from 'react-router-dom';
 import UseAuth from '../hooks/UseAuth';
+import FormToggle from '../components/FormToggle';
 
 function Login() {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [toggle, setToggle] = useState<boolean>(false);
   const [valid, setValid] = useState<boolean>(false);
+  const [shouldValidate, setShouldValidate] = useState<boolean>(false);
+
   const [didErrorUsername, setDidErrorUsername] = useState<undefined | boolean>(
     undefined
   );
   const [didErrorPassword, setDidErrorPassword] = useState<undefined | boolean>(
     undefined
   );
-  const [shouldValidate, setShouldValidate] = useState<boolean>(false);
 
   const { error, loginUser } = UseAuth();
 
@@ -30,7 +33,7 @@ function Login() {
   };
 
   const handleChange = (ev: any, sender: string) => {
-    const value = ev.target.value;
+    let value = ev.target.value;
     switch (sender) {
       case 'username':
         setUsername(value);
@@ -38,6 +41,10 @@ function Login() {
       case 'password':
         setPassword(value);
         break;
+      case 'toggle':
+        value = ev.target.checked;
+        setToggle(value);
+        return;
     }
 
     setShouldValidate(true);
@@ -97,12 +104,17 @@ function Login() {
         {/* Password */}
         <FormInput
           input={{
-            type: 'password',
+            type: toggle ? 'text' : 'password',
             required: true,
             name: 'password',
             id: 'password',
             placeholder: '********',
-            altText: '',
+            altText: (
+              <FormToggle
+                state={toggle}
+                setState={handleChange}
+              />
+            ),
             errorText:
               'Need 3/4 of these: [0-9], [a-zA-Z], [`~!@#,...]. Len: 8-32',
           }}
